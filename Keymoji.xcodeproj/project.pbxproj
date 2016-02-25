@@ -12,7 +12,33 @@
 		6A8223D31C7FACE00006CEA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A8223D11C7FACE00006CEA9 /* Main.storyboard */; };
 		6A8223D51C7FACE00006CEA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A8223D41C7FACE00006CEA9 /* Assets.xcassets */; };
 		6A8223D81C7FACE00006CEA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A8223D61C7FACE00006CEA9 /* LaunchScreen.storyboard */; };
+		6A8223E61C7FADBF0006CEA9 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8223E51C7FADBF0006CEA9 /* KeyboardViewController.swift */; };
+		6A8223EA1C7FADBF0006CEA9 /* Keymoji Keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6A8223E31C7FADBF0006CEA9 /* Keymoji Keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6A8223E81C7FADBF0006CEA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6A8223C21C7FACE00006CEA9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A8223E21C7FADBF0006CEA9;
+			remoteInfo = "Keymoji Keyboard";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6A8223EE1C7FADBF0006CEA9 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6A8223EA1C7FADBF0006CEA9 /* Keymoji Keyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6A8223CA1C7FACE00006CEA9 /* Keymoji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keymoji.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,10 +48,20 @@
 		6A8223D41C7FACE00006CEA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A8223D71C7FACE00006CEA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A8223D91C7FACE00006CEA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A8223E31C7FADBF0006CEA9 /* Keymoji Keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Keymoji Keyboard.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A8223E51C7FADBF0006CEA9 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		6A8223E71C7FADBF0006CEA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		6A8223C71C7FACE00006CEA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A8223E01C7FADBF0006CEA9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				6A8223CC1C7FACE00006CEA9 /* Keymoji */,
+				6A8223E41C7FADBF0006CEA9 /* Keymoji Keyboard */,
 				6A8223CB1C7FACE00006CEA9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				6A8223CA1C7FACE00006CEA9 /* Keymoji.app */,
+				6A8223E31C7FADBF0006CEA9 /* Keymoji Keyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,6 +102,15 @@
 			path = Keymoji;
 			sourceTree = "<group>";
 		};
+		6A8223E41C7FADBF0006CEA9 /* Keymoji Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				6A8223E51C7FADBF0006CEA9 /* KeyboardViewController.swift */,
+				6A8223E71C7FADBF0006CEA9 /* Info.plist */,
+			);
+			path = "Keymoji Keyboard";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,15 +121,34 @@
 				6A8223C61C7FACE00006CEA9 /* Sources */,
 				6A8223C71C7FACE00006CEA9 /* Frameworks */,
 				6A8223C81C7FACE00006CEA9 /* Resources */,
+				6A8223EE1C7FADBF0006CEA9 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6A8223E91C7FADBF0006CEA9 /* PBXTargetDependency */,
 			);
 			name = Keymoji;
 			productName = Keymoji;
 			productReference = 6A8223CA1C7FACE00006CEA9 /* Keymoji.app */;
 			productType = "com.apple.product-type.application";
+		};
+		6A8223E21C7FADBF0006CEA9 /* Keymoji Keyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A8223EB1C7FADBF0006CEA9 /* Build configuration list for PBXNativeTarget "Keymoji Keyboard" */;
+			buildPhases = (
+				6A8223DF1C7FADBF0006CEA9 /* Sources */,
+				6A8223E01C7FADBF0006CEA9 /* Frameworks */,
+				6A8223E11C7FADBF0006CEA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Keymoji Keyboard";
+			productName = "Keymoji Keyboard";
+			productReference = 6A8223E31C7FADBF0006CEA9 /* Keymoji Keyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -95,6 +161,9 @@
 				ORGANIZATIONNAME = "Christmas House";
 				TargetAttributes = {
 					6A8223C91C7FACE00006CEA9 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					6A8223E21C7FADBF0006CEA9 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
 				};
@@ -113,6 +182,7 @@
 			projectRoot = "";
 			targets = (
 				6A8223C91C7FACE00006CEA9 /* Keymoji */,
+				6A8223E21C7FADBF0006CEA9 /* Keymoji Keyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +198,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6A8223E11C7FADBF0006CEA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -140,7 +217,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6A8223DF1C7FADBF0006CEA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A8223E61C7FADBF0006CEA9 /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6A8223E91C7FADBF0006CEA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A8223E21C7FADBF0006CEA9 /* Keymoji Keyboard */;
+			targetProxy = 6A8223E81C7FADBF0006CEA9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6A8223D11C7FACE00006CEA9 /* Main.storyboard */ = {
@@ -249,6 +342,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Keymoji/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.christmasHouse.Keymoji;
@@ -260,10 +354,33 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Keymoji/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.christmasHouse.Keymoji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		6A8223EC1C7FADBF0006CEA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Keymoji Keyboard/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.christmasHouse.Keymoji.Keymoji-Keyboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		6A8223ED1C7FADBF0006CEA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Keymoji Keyboard/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.christmasHouse.Keymoji.Keymoji-Keyboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -284,6 +401,14 @@
 			buildConfigurations = (
 				6A8223DD1C7FACE00006CEA9 /* Debug */,
 				6A8223DE1C7FACE00006CEA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6A8223EB1C7FADBF0006CEA9 /* Build configuration list for PBXNativeTarget "Keymoji Keyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A8223EC1C7FADBF0006CEA9 /* Debug */,
+				6A8223ED1C7FADBF0006CEA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
