@@ -25,9 +25,10 @@ class KeyboardView: UIView
     func createKeyboard()
     {
         let stack = createMainStack()
-        stack.addArrangedSubview(createRow("QWERTYUIOP"))
-        stack.addArrangedSubview(createRow("ASDFGHJKL"))
-        stack.addArrangedSubview(createRow("ZXCVBNM"))
+        stack.addArrangedSubview(RowView.createRow("😀😬😁😂😃😄😅😆😇😉😊"))
+        stack.addArrangedSubview(RowView.createRow("QWERTYUIOP"))
+        stack.addArrangedSubview(RowView.createRow("ASDFGHJKL"))
+        stack.addArrangedSubview(RowView.createRow("ZXCVBNM"))
     }
     
     func createMainStack() -> UIStackView
@@ -46,23 +47,4 @@ class KeyboardView: UIView
         }
         return mainStack
     }
-    
-    func createRow (icons : String) -> UIStackView
-    {
-        var buttons : [UIView] = []
-        for icon in icons.characters
-        {
-            let button = UIButton(type: UIButtonType.System)
-            button.setTitle(String(icon), forState: UIControlState.Normal)
-            buttons.append(button)
-        }
-        
-        let row = UIStackView(arrangedSubviews: buttons)
-        row.axis         = UILayoutConstraintAxis.Horizontal
-        row.distribution = UIStackViewDistribution.EqualSpacing
-        row.alignment    = UIStackViewAlignment.Fill
-        
-        return row
-    }
-
 }
