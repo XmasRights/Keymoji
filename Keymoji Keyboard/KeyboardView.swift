@@ -22,16 +22,16 @@ class KeyboardView: UIView
         createKeyboard()
     }
     
-    func createKeyboard()
+    private func createKeyboard()
     {
         let stack = createMainStack()
-        stack.addArrangedSubview(RowView.createRow("😀😬😁😂😃😄😅😆😇😉😊"))
-        stack.addArrangedSubview(RowView.createRow("QWERTYUIOP"))
-        stack.addArrangedSubview(RowView.createRow("ASDFGHJKL"))
-        stack.addArrangedSubview(RowView.createRow("ZXCVBNM"))
+        stack.addArrangedSubview(RowView.createRowFromString("😀😬😁😂😃😄😅😆😇😉😊"))
+        stack.addArrangedSubview(RowView.createRowFromString("QWERTYUIOP"))
+        stack.addArrangedSubview(RowView.createRowFromString("ASDFGHJKL"))
+        stack.addArrangedSubview(RowView.createRowFromString("ZXCVBNM"))
     }
     
-    func createMainStack() -> UIStackView
+    private func createMainStack() -> UIStackView
     {
         let mainStack = UIStackView()
         mainStack.axis         = UILayoutConstraintAxis.Vertical

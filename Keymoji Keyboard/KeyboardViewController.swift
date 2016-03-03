@@ -22,7 +22,7 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.purpleColor()
+        self.view.backgroundColor = UIColor.greenColor()
         
         let keyboard = KeyboardView()
         keyboard.translatesAutoresizingMaskIntoConstraints = false
