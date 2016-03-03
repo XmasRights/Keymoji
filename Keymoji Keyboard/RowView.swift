@@ -21,13 +21,32 @@ enum KeyType
 
 class RowView: UIView
 {
-    class func createRowFromString (icons: String) -> UIView
+    override init(frame: CGRect)
     {
-        let keys = generateKeyTypeArray(icons)
-        return createRow(keys)
+        super.init(frame: frame)
     }
     
-    class func createRow (keys: [KeyType]) -> UIView
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+    }
+    
+    convenience init(icons: String)
+    {
+        self.init(frame:CGRect.zero)
+        
+        let keys = RowView.generateKeyTypeArray(icons)
+        createRow(keys)
+    }
+    
+    convenience init(keys: [KeyType])
+    {
+        self.init(frame:CGRect.zero)
+        
+        createRow(keys)
+    }
+    
+    private func createRow (keys: [KeyType])
     {
         var buttons = [UIView]()
         for key in keys
@@ -40,7 +59,11 @@ class RowView: UIView
         row.distribution = UIStackViewDistribution.EqualSpacing
         row.alignment    = UIStackViewAlignment.Fill
         
-        return row
+        self.addSubview(row)
+        
+        row.translatesAutoresizingMaskIntoConstraints = false
+        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[i]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["i" : row]))
+        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[i]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["i" : row]))
     }
     
     class func generateKeyTypeArray (icons: String) -> [KeyType]
@@ -55,7 +78,7 @@ class RowView: UIView
         return output
     }
     
-    private class func getButton (type: KeyType) -> UIButton
+    private func getButton (type: KeyType) -> UIButton
     {
         switch type
         {

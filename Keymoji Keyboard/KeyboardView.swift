@@ -26,19 +26,23 @@ class KeyboardView: UIView
     {
         let stack = createMainStack()
         
-        let row0 = RowView.generateKeyTypeArray("😀😬😁😂😃😄😅😆😇😉😊")
-        let row1 = RowView.generateKeyTypeArray("QWERTYUIOP")
-        let row2 = RowView.generateKeyTypeArray("ASDFGHJKL")
-        var row3 = RowView.generateKeyTypeArray("ZXCVBNM")
-        row3.insert(KeyType.Shift, atIndex: 0)
-        row3.append(KeyType.Backspace)
-        let row4 = [KeyType.Numbers, KeyType.KeyboardSwitcher, KeyType.Space, KeyType.Return]
+        let row0 = RowView(icons: ("😀😬😁😂😃😄😅😆😇😉😊"))
+        let row1 = RowView(icons: ("QWERTYUIOP"))
+        let row2 = RowView(icons: ("ASDFGHJKL"))
         
-        stack.addArrangedSubview(RowView.createRow(row0))
-        stack.addArrangedSubview(RowView.createRow(row1))
-        stack.addArrangedSubview(RowView.createRow(row2))
-        stack.addArrangedSubview(RowView.createRow(row3))
-        stack.addArrangedSubview(RowView.createRow(row4))
+        var row3Keys = RowView.generateKeyTypeArray("ZXCVBNM")
+        row3Keys.insert(KeyType.Shift, atIndex: 0)
+        row3Keys.append(KeyType.Backspace)
+        let row3 = RowView(keys: row3Keys)
+        
+        let row4Keys = [KeyType.Numbers, KeyType.KeyboardSwitcher, KeyType.Space, KeyType.Return]
+        let row4 = RowView(keys: row4Keys)
+        
+        stack.addArrangedSubview(row0)
+        stack.addArrangedSubview(row1)
+        stack.addArrangedSubview(row2)
+        stack.addArrangedSubview(row3)
+        stack.addArrangedSubview(row4)
     }
     
     private func createMainStack() -> UIStackView
