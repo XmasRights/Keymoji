@@ -19,8 +19,6 @@ enum KeyType
     case Return
 }
 
-
-
 class RowView: UIView
 {
     class func createRowFromString (icons: String) -> UIView
@@ -45,7 +43,7 @@ class RowView: UIView
         return row
     }
     
-    private class func generateKeyTypeArray (icons: String) -> [KeyType]
+    class func generateKeyTypeArray (icons: String) -> [KeyType]
     {
         var output = [KeyType]()
         for icon in icons.characters

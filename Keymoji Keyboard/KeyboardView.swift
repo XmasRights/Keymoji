@@ -25,10 +25,20 @@ class KeyboardView: UIView
     private func createKeyboard()
     {
         let stack = createMainStack()
-        stack.addArrangedSubview(RowView.createRowFromString("😀😬😁😂😃😄😅😆😇😉😊"))
-        stack.addArrangedSubview(RowView.createRowFromString("QWERTYUIOP"))
-        stack.addArrangedSubview(RowView.createRowFromString("ASDFGHJKL"))
-        stack.addArrangedSubview(RowView.createRowFromString("ZXCVBNM"))
+        
+        let row0 = RowView.generateKeyTypeArray("😀😬😁😂😃😄😅😆😇😉😊")
+        let row1 = RowView.generateKeyTypeArray("QWERTYUIOP")
+        let row2 = RowView.generateKeyTypeArray("ASDFGHJKL")
+        var row3 = RowView.generateKeyTypeArray("ZXCVBNM")
+        row3.insert(KeyType.Shift, atIndex: 0)
+        row3.append(KeyType.Backspace)
+        let row4 = [KeyType.Numbers, KeyType.KeyboardSwitcher, KeyType.Space, KeyType.Return]
+        
+        stack.addArrangedSubview(RowView.createRow(row0))
+        stack.addArrangedSubview(RowView.createRow(row1))
+        stack.addArrangedSubview(RowView.createRow(row2))
+        stack.addArrangedSubview(RowView.createRow(row3))
+        stack.addArrangedSubview(RowView.createRow(row4))
     }
     
     private func createMainStack() -> UIStackView
