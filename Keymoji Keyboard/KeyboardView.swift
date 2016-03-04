@@ -10,6 +10,8 @@ import UIKit
 
 class KeyboardView: UIView
 {
+    var keyCallback: (() -> KeyType)?
+    
     override init(frame: CGRect)
     {
         super.init(frame: frame)

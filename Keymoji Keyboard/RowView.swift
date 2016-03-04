@@ -8,17 +8,6 @@
 
 import UIKit
 
-enum KeyType
-{
-    case Letter(String)
-    case Shift
-    case Backspace
-    case Numbers
-    case KeyboardSwitcher
-    case Space
-    case Return
-}
-
 class RowView: UIView
 {
     override init(frame: CGRect)
@@ -49,9 +38,11 @@ class RowView: UIView
     private func createRow (keys: [KeyType])
     {
         var buttons = [UIView]()
-        for key in keys
+        for keyType in keys
         {
-            buttons.append( getButton(key) )
+            let key = Key(keyType: keyType)
+            key.addTarget(self, action: "buttonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+            buttons.append(key)
         }
         
         let row = UIStackView(arrangedSubviews: buttons)
@@ -62,8 +53,8 @@ class RowView: UIView
         self.addSubview(row)
         
         row.translatesAutoresizingMaskIntoConstraints = false
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[i]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["i" : row]))
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[i]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["i" : row]))
+        self.addConstraints (NSLayoutConstraint.constraintsWithVisualFormat("H:|[i]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["i" : row]))
+        self.addConstraints (NSLayoutConstraint.constraintsWithVisualFormat("V:|[i]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["i" : row]))
     }
     
     class func generateKeyTypeArray (icons: String) -> [KeyType]
@@ -78,44 +69,8 @@ class RowView: UIView
         return output
     }
     
-    private func getButton (type: KeyType) -> UIButton
+    private func buttonPressed(sender: Key!)
     {
-        switch type
-        {
-        case .Letter(let character):
-            let button = UIButton(type: UIButtonType.System)
-            button.setTitle(String(character), forState: UIControlState.Normal)
-            return button
-            
-        case .Shift:
-            let button = UIButton(type: UIButtonType.System)
-            button.setTitle("SH", forState: UIControlState.Normal)
-            return button
-        
-        case .Backspace:
-            let button = UIButton(type: UIButtonType.System)
-            button.setTitle("BS", forState: UIControlState.Normal)
-            return button
-            
-        case .Numbers:
-            let button = UIButton(type: UIButtonType.System)
-            button.setTitle("123", forState: UIControlState.Normal)
-            return button
-            
-        case .KeyboardSwitcher:
-            let button = UIButton(type: UIButtonType.System)
-            button.setTitle("KS", forState: UIControlState.Normal)
-            return button
-            
-        case .Space:
-            let button = UIButton(type: UIButtonType.System)
-            button.setTitle("Space", forState: UIControlState.Normal)
-            return button
-            
-        case .Return:
-            let button = UIButton(type: UIButtonType.System)
-            button.setTitle("Return", forState: UIControlState.Normal)
-            return button
-        }
+        print("\(sender.type)")
     }
 }
